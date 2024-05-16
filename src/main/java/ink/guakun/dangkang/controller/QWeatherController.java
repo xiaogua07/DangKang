@@ -31,7 +31,7 @@ public class QWeatherController {
     /**
      * QWeather key
      */
-    @Value("${qweather.private_key}")
+    @Value("${qweather.privatekey}")
     private String qWeatherKey;
 
     private final OkHttpClient httpClient;
