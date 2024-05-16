@@ -10,4 +10,7 @@ import java.util.List;
 public interface SolarTermDateMapper {
     @Select("select * from `solar-term-date`")
     List<SolarTermDateDO> selectAllSolarTermDate();
+
+    @Select("select * from `solar-term-date` std where std.solar_term_date >= curdate() order by std.solar_term_date asc limit 1;")
+    SolarTermDateDO selectNext();
 }
