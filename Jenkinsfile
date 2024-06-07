@@ -6,6 +6,8 @@ String branchName = env.JOB_NAME.split(/\//)[1..-1].join(/\//);
 
 println("${buildNumber} ${timestamp} ${projectName}");
 
+String version = "${buildNumber} ${timestamp} ${projectName}"
+
 node({
     checkout scm;
 
