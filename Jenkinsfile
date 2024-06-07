@@ -42,7 +42,7 @@ def deployVersion(String version) {
 def setScmPollStrategyAndBuildTypes(List buildTypes) {
     def propertiesArray = [
         parameters([choice(choices: buildTypes.join('\n'), description: '', name: 'BuildType')]),
-        pipelineTriggers([$class: "SCMTrigger", scmpoll_spec: "* * * * *"])
+        pipelineTriggers([[$class: "SCMTrigger", scmpoll_spec: "* * * * *"]])
     ];
 
     properties(propertiesArray);
@@ -53,7 +53,7 @@ def rollback() {
     def getAllTagsUri = "/v2/dangkang/tags/list";
 
     def responseJson = new URL("${dockerRegistryHost}${getAllTagsUri}")
-        .getText(requestProperties: ['Content-Type', 'Application/json']);
+        .getText(requestProperties: ['Content-Type': "application/json"]);
     println(responseJson)
 
     // { name:xxx, tags: [tag1, tag2, ...] }
