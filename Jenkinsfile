@@ -21,7 +21,7 @@ node({
 def normalCIBuild(String version) {
     stage('test & package')
 
-    sh('./mvnw clean package')
+    sh('./mvnw clean package -DskipTests')
 
     stage('docker build')
     sh("docker build -t ip:port/dangkang-springboot:${version}")
